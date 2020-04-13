@@ -2,15 +2,12 @@ import { createConnection } from 'typeorm';
 
 export async function connect() {
     await createConnection({
-        type: "mysql",
-        host: "localhost",
-        port: 3306,
-        username: "root",
-        password: "",
-        database: "biblioteca",
+        type: "postgres",
+        url: process.env.DATABASE_URL,
         synchronize: true,
         entities: [
-            __dirname + "/entity/*.ts"
+            __dirname + "/entity/*.ts",
+            __dirname + "/entity/*.js"
         ]
     });
     console.log("connected database");
