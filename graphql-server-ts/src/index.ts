@@ -8,7 +8,7 @@ import BookResolver from "./modules/book";
 import * as http from "http";
 
 const main = async () => {
-    const PORT: number = 4000;
+    const PORT: number | string | undefined =  process.env.PORT || 4000 ;
     await connect();
     const apolloServer = new ApolloServer({
         schema: await buildSchema({
@@ -17,7 +17,8 @@ const main = async () => {
         subscriptions: {
             path: "/subscriptions"
         },
-        playground: true
+        introspection: true,
+        playground: true,
     });
 
     const app = Express();
