@@ -48,11 +48,27 @@ function BookList({ books }: { books: IBook[] }) {
     return (
         <div>
             {
-                books.reverse().map((book: IBook) => (
-                    <div key={book.id}>
-                        <p>Name of book: {book.name}</p>
-                        <p>Author: {book.author?.name}</p>
-                        <hr />
+                [...books].reverse().map((book: IBook) => (
+                    <div style={{
+                        margin: '25px 5px',
+                        padding: '10px',
+                        borderRadius: '6px',
+                        boxShadow: '2px 2px 8px 0 rgba(0,0,0,0.4)'
+                    }} key={book.id}>
+                        <p
+                        style={{
+                            fontWeight: 'bold',
+                            fontSize: '1.6rem',
+                            textAlign: 'center'
+                        }}
+                        >Name of book: {book.name}</p>
+                        <p
+                        style={{
+                            fontWeight: 'bold',
+                            fontSize: '1.6rem',
+                            textAlign: 'center'
+                        }}
+                        >Author: {book.author?.name}</p>
                     </div>
 
                 ))

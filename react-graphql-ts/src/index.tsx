@@ -9,15 +9,17 @@ import { getMainDefinition } from 'apollo-utilities';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from '@apollo/react-hooks';
-
+import "./index.css";
 const wsLink = new WebSocketLink({
   uri: 'wss://graphql-pg-test-tom.herokuapp.com/subscriptions',
+  //uri: 'ws://localhost:4000/subscriptions',
   options: {
     reconnect: true
   }
 });
 
 const httpLink = new HttpLink({
+  //uri: 'http://localhost:4000/graphql'
   uri: 'https://graphql-pg-test-tom.herokuapp.com/graphql'
 });
 const link = split(

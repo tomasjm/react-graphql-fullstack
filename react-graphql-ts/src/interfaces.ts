@@ -10,3 +10,7 @@ export interface IBook {
 export interface IBookContainer {
     books: IBook[]
 }
+
+export interface IAuthorContainer {
+    authors: IAuthor[]
+}
